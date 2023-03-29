@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+projectData = [];
 /* const dotenv = require("dotenv");
 dotenv.config(); */
 
@@ -38,16 +38,33 @@ app.listen(8081, () => {
 
 // Add a GET route that returns the projectData object in your server code
 app.get("/all", (req, res) => {
-  res.send(projectData);
+  res.send(projectData[projectData.length - 1]);
 });
 
-//add a POST route that adds incoming data to projectData.
+//add a POST route that fetching data from api
+/* app.post("/search", (req, res) => {
+  const { imgs, weathers, place, countryName, date, userResponse } = req.body;
+  data = {};
+  data.countryName = countryName;
+  data.date = date;
+  data.userResponse = userResponse;
+  data.weathers = weathers;
+  data.place = place;
+  data.imgs = imgs;
+  projectData.push(data);
+}); */
+
+//add a POST route that adds the data to incoming data
 app.post("/add", (req, res) => {
   const { imgs, weathers, place, countryName, date, userResponse } = req.body;
-  projectData.countryName = countryName;
-  projectData.date = date;
-  projectData.userResponse = userResponse;
-  projectData.weathers = weathers;
-  projectData.place = place;
-  projectData.imgs = imgs;
+  data = {};
+  data.countryName = countryName;
+  data.date = date;
+  data.userResponse = userResponse;
+  data.weathers = weathers;
+  data.place = place;
+  data.imgs = imgs;
+
+  projectData.push(data);
+  res.send(projectData);
 });

@@ -10,12 +10,7 @@ body {
   letter-spacing: 0.1rem;
   //background-image: linear-gradient(red, yellow, green);
   overflow: auto;
-  margin: 0;
   background-attachment: fixed;
-}
-
-.full-page-width {
-  height: 100vh;
 }
 
 #app {
@@ -82,7 +77,8 @@ textarea:focus,
   outline: none;
 }
 
-#generate {
+#generate,
+#save {
   background: #8a584c;
   color: #ceb793;
   font-size: large;
@@ -93,7 +89,8 @@ textarea:focus,
   margin-left: 0;
 }
 
-#generate:hover {
+#generate:hover,
+#save:hover {
   transform: scale(1.05);
   color: #f5eacf;
 }
@@ -116,7 +113,7 @@ textarea:focus,
   font-size: medium;
 }
 
-#carouselExampleCaptions {
+#showrow {
   display: none;
 }
 figcaption {

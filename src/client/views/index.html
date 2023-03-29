@@ -16,143 +16,172 @@
     />
   </head>
   <body>
-    <div class="full-page-width">
-      <div id="app" class="container">
-        <div class="headline row">Travel Planner</div>
-        <div class="row">
-          <form name='myForm' onsubmit="return Client.handleSubmit(event)" required>
-            <div class="mb-3 zip">
-              <label  for="zip" class="form-label">Place</label>
-              <input
-                type="text"
-                class="form-control"
-                id="zip"
-                name='zip'
-                placeholder="Enter destination here"
-                required
-              />
-            </div>
-            <div class="mb-3 date">
-              <label for="date" class="form-label">Departure Date</label>
-              <input
-                class="form-control"
-                type="date"
-                id="date"
-                name='date'
-                placeholder="Enter departure date here"
-                required
-              />
-            </div>
-            <div class="mb-3 notes">
-              <label for="notes" class="form-label">Travel Notes</label>
-              <textarea
-                class="myInput form-control"
-                id="notes"
-                placeholder="Enter your notes here"
-                onchange="Client.onChange(event)"
-              ></textarea>
-            </div>
-            <input
-              class="btn btn-primary"
-              id="generate"
-              type="submit"
-              name=""
-              value="Save Trip"
-              onclick="return Client.validateForm() &&  Client.handleSubmit(event)"
-              onsubmit="return Client.validateForm() && Client.handleSubmit(event)"
-            />
-          </form>
-        </div>
-
-        <div class="entry">
+    <div id="app" class="container text-center">
+      <div class="headline row text-center">Travel Planner</div>
+      <div class="row">
+        <!-- left column start -->
+        <div class="col-sm-8">
+          <!-- form row start -->
           <div class="row">
-            <div class="headline">My Next Trip</div>
-          </div>
-          <div class="row">
-            <div class="tripsnotes"></div>
-          </div>
-
-          <div class="row">
-            <!-- image carousel -->
-            <div id="carouselExampleCaptions" class="carousel slide">
-              <div class="carousel-indicators">
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide-to="0"
-                  class="active"
-                  aria-current="true"
-                  aria-label="Slide 1"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide-to="1"
-                  aria-label="Slide 2"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide-to="2"
-                  aria-label="Slide 3"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide-to="3"
-                  aria-label="Slide 4"
-                ></button>
+            <form
+              name="myForm"
+              onsubmit="return Client.handleSubmit(event)"
+              required
+            >
+              <div class="mb-3 zip">
+                <label for="zip" class="form-label">Place</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="zip"
+                  name="zip"
+                  placeholder="Enter destination here"
+                  value="texas"
+                  required
+                />
               </div>
-              <div class="carousel-inner">
-                <!--<div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="...">
-              </div>  -->
+              <div class="mb-3 date">
+                <label for="date" class="form-label">Departure Date</label>
+                <input
+                  class="form-control"
+                  type="date"
+                  id="date"
+                  name="date"
+                  value="2023-01-31"
+                  required
+                />
               </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
+              <div class="mb-3 notes">
+                <label for="notes" class="form-label">Travel Notes</label>
+                <textarea
+                  class="myInput form-control"
+                  id="notes"
+                  placeholder="Enter your notes here"
+                  onchange="Client.onChange(event)"
+                ></textarea>
+              </div>
+              <input
+                class="btn btn-primary"
+                id="generate"
+                type="submit"
+                name=""
+                value="Submit"
+                onclick="return Client.validateForm() &&  Client.handleSubmit(event)"
+                onsubmit="return Client.validateForm() && Client.handleSubmit(event)"
+              />
+            </form>
           </div>
-          <!-- image carousel end-->
+          <!-- form row end -->
 
-          <!-- weather forcast -->
-          <div class="row" id="weather">
-              <!-- <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <!-- show row start -->
+          <div class="row" id="showrow">
+            <div class="entry">
+              <div class="row">
+                <div class="headline">My Next Trip</div>
+              </div>
+              <div class="row">
+                <div class="tripsnotes"></div>
+              </div>
+
+              <div class="row">
+                <!-- image carousel -->
+                <div id="carouselExampleCaptions" class="carousel slide">
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="3"
+                      aria-label="Slide 4"
+                    ></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <!--<div class="carousel-item active">
+                      <img src="..." class="d-block w-100" alt="...">
+                    </div>  -->
+                  </div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
                 </div>
-              </div> -->
+              </div>
+              <!-- image carousel end-->
+
+              <!-- weather forcast -->
+              <div class="row" id="weather">
+                <!-- weather forcast cards add in DOM-->
+              </div>
+              <!-- weather forcast END-->
+
+              <!-- save to data base row start -->
+              <div class="row">
+                <form onsubmit="Client.saveTrip(event)">
+                  <input
+                    class="btn btn-primary"
+                    id="save"
+                    type="submit"
+                    name=""
+                    value="Save"
+                    onclick="Client.saveTrip(event)"
+                    onsubmit="Client.saveTrip(event)"
+                  />
+                </form>
+              </div>
+              <!-- save to database row end -->
+            </div>
+            <!-- entry end -->
           </div>
-          <!-- weather forcast END-->
-
+          <!-- show row end-->
         </div>
-      </div>
+        <!-- left column end -->
 
+        <!-- history column start -->
+        <div class="col-sm-4" id="history">History</div>
+        <!-- history end end -->
       </div>
+      <!-- row end -->
     </div>
+    <!-- app end -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
@@ -171,13 +200,12 @@
     ></script>
     <script>
       // Check that service workers are supported
-      if ('serviceWorker' in navigator) {
-          // Use the window load event to keep the page load performant
-          window.addEventListener('load', () => {
-              navigator.serviceWorker.register('service-worker.js');
-          });
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("service-worker.js");
+        });
       }
-  </script>
-  
+    </script>
   </body>
 </html>
