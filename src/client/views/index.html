@@ -20,7 +20,7 @@
       <div class="headline row text-center">Travel Planner</div>
       <div class="row">
         <!-- left column start -->
-        <div class="col-sm-8">
+        <div class="col-sm-7">
           <!-- form row start -->
           <div class="row">
             <form
@@ -155,7 +155,7 @@
 
               <!-- save to data base row start -->
               <div class="row">
-                <form onsubmit="Client.saveTrip(event)">
+                <form id="mySaveForm" onsubmit="Client.saveTrip(event)">
                   <input
                     class="btn btn-primary"
                     id="save"
@@ -176,7 +176,10 @@
         <!-- left column end -->
 
         <!-- history column start -->
-        <div class="col-sm-4" id="history">History</div>
+        <div class="col-sm">
+          History
+          <ol class="list-group list-group-numbered" id="history"></ol>
+        </div>
         <!-- history end end -->
       </div>
       <!-- row end -->

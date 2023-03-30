@@ -4,8 +4,16 @@ import { validateForm } from "./js/validateForm";
 import { calcDayGap } from "./js/dayGap";
 import { saveTrip } from "./js/saveTrip";
 import { updateUI } from "./js/updateUI";
-
+import { showHistory } from "./js/showHistory";
 import "./styles/style.scss";
 
 /* alert("received!"); */
-export { handleSubmit, onChange, validateForm, calcDayGap, saveTrip, updateUI };
+export {
+  handleSubmit,
+  showHistory,
+  onChange,
+  validateForm,
+  calcDayGap,
+  saveTrip,
+  updateUI,
+};

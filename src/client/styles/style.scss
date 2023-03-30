@@ -156,6 +156,12 @@ figcaption {
   }
 }
 
+@media (max-width: 800px) {
+  .historyImg {
+    display: none;
+  }
+}
+
 @media (min-width: 1000px) {
   #app {
     width: 1000px;

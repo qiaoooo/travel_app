@@ -45,8 +45,7 @@ function handleSubmit(event) {
     }
 
     //post data to server side
-    let finalData;
-    finalData = {
+    const finalData = {
       weathers: weatherdata.slice(0, 4),
       place: geodata.name,
       countryName: geodata.countryName,
@@ -99,4 +98,4 @@ function handleSubmit(event) {
     }
   };
 }
-export { handleSubmit, finalData };
+export { handleSubmit };

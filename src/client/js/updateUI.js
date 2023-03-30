@@ -1,9 +1,15 @@
 export async function updateUI(allData) {
-  //const request = await fetch("http://localhost:8081/all");
   try {
-    //const allData = await request.json();
-    //console.log("update UI", allData);
     const { imgs, weathers, place, countryName, date, userResponse } = allData;
+    const imgHidden = document.createElement("input");
+
+    Object.assign(imgHidden, {
+      type: "hidden",
+      value: imgs[0].webformatURL,
+      id: "imgHidden",
+    });
+    const mysaveForm = document.querySelector("#mySaveForm");
+    mysaveForm.appendChild(imgHidden);
 
     //clean up current display
     const tripsnotes = document.querySelector(".tripsnotes");
@@ -46,7 +52,7 @@ export async function updateUI(allData) {
       const icon = `https://www.weatherbit.io/static/img/icons/${weather.weather.icon}.png`;
 
       const col = document.createElement("div");
-      col.classList.add("col");
+      col.classList.add("col-sm");
 
       const weathercard = document.createElement("div");
       weathercard.classList.add("card");
@@ -72,6 +78,4 @@ export async function updateUI(allData) {
   } catch (error) {
     console.log("UI error", error);
   }
-
-  document.querySelector("form").reset();
 }
